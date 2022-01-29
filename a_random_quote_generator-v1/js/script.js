@@ -67,18 +67,9 @@ project 1 - A Random Quote Generator
  ***/
 function getRandomQuote() {
 	let quoteObject = quotes[Math.floor(Math.random() * quotes.length)]; 
-	colorChange();
 	return quoteObject
 	
 }
-
-//function to change background color.
-//(Source and credit:https://www.codespeedy.com/how-to-change-background-color-every-seconds-in-javascript/)
-function colorChange() {
-	let randomColor = Math.floor(Math.random()*16777215).toString(16);
-	document.body.style.backgroundColor = "#"+randomColor;
-	};
-
 /***
  * `printQuote` function
  ***/
@@ -97,13 +88,14 @@ function printQuote() {
 	if ('tag' in randomQuote) {
 		htmlString+= `<span class="year">${randomQuote.tag}</span>`;
 	}
-
 	document.getElementById('quote-box').innerHTML = htmlString;
+	//Change background color (credit:codespeedy.com)
+	document.body.style.backgroundColor = "#"+ Math.floor(Math.random()*16777215).toString(16);
+
 }
 
-//Function to automatically change quote and color every 10 seconds
+//Function to automatically change quote every 10 seconds
 setInterval(printQuote,10000)
-setInterval(getRandomQuote,10000)
 
 /***
  * click event listener for the print quote button
