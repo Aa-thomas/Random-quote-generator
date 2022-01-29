@@ -14,7 +14,8 @@ project 1 - A Random Quote Generator
 	quote: 'This is quote 1',
 	source: 'source1',
 	citation: 'cit1',
-	year: 'year1'
+	year: 'year1',
+	tag: 'tag1'
 }, {
 	quote: 'this is quote 2',
 	source: 'source2',
@@ -24,11 +25,11 @@ project 1 - A Random Quote Generator
 	quote: 'this is quote 3',
 	source: 'source3',
 	citation: 'cit3',
-	year: 'year3'
+	year: 'year3',
+	tag: 'tag3'
 }, {
 	quote: 'this is quote 4',
 	source: 'source4',
-	citation: 'cit4',
 	year: 'year4'
 }, {
 	quote: 'this is quote 5',
@@ -39,15 +40,16 @@ project 1 - A Random Quote Generator
 	quote: 'this is quote 6',
 	source: 'source6',
 	citation: 'cit6',
-	year: 'year 6'
 }, {
 	quote: 'this is quote 7',
 	source: 'source7',
 	citation: 'cit7',
-	year: 'year7'
+	year: 'year7',
+	tag: 'tag7'
 }, {
 	quote: 'this is quote 8',
 	source: 'source8',
+	tag: 'tag8'
 
 }, {
 	quote: 'this is quote 9',
@@ -56,7 +58,7 @@ project 1 - A Random Quote Generator
 }, {
 	quote: 'this is quote 10',
 	source: 'source10',
-
+	
 }, ];
 
 
@@ -64,14 +66,18 @@ project 1 - A Random Quote Generator
  * `getRandomQuote` function
  ***/
 function getRandomQuote() {
-	function getRandomNum(upper, lower) {
-		let randomNum = Math.floor(Math.random() * (upper - lower + 1)) + lower;
-		return randomNum;
-	}
-	let quoteObject = quotes[getRandomNum(10, 0)]; 
-	return quoteObject;
+	let quoteObject = quotes[Math.floor(Math.random() * quotes.length)]; 
+	colorChange();
+	return quoteObject
+	
 }
 
+//function to change background color.
+//(Source and credit:https://www.codespeedy.com/how-to-change-background-color-every-seconds-in-javascript/)
+function colorChange() {
+	let randomColor = Math.floor(Math.random()*16777215).toString(16);
+	document.body.style.backgroundColor = "#"+randomColor;
+	};
 
 /***
  * `printQuote` function
@@ -80,21 +86,24 @@ function printQuote() {
 	let randomQuote = getRandomQuote();
 	let htmlQuote = `<p class="quote">${randomQuote.quote}</p>`;
 	let htmlSource = `<p class="source">${randomQuote.source}</p>`;
-	let htmlString = '';
+	let htmlString = `${htmlQuote}` + `${htmlSource}`;
 
 	if ('citation' in randomQuote) {
-		let htmlCit = `<span class="citation">${randomQuote.citation}</span>`;
-		htmlString = htmlQuote + htmlSource + htmlCit;
-	} else if ('year' in randomQuote) {
-		let htmlYear = `<span class="year">${randomQuote.year}</span>`;
-		htmlString = htmlQuote + htmlSource + htmlYear;
-	} else {
-		htmlString = `${htmlQuote}` + `${htmlSource}`;
+		htmlString+= `<span class="citation">${randomQuote.citation}</span>`;
+	}
+	if ('year' in randomQuote) {
+		htmlString+= `<span class="year">${randomQuote.year}</span>`;
+	}
+	if ('tag' in randomQuote) {
+		htmlString+= `<span class="year">${randomQuote.tag}</span>`;
 	}
 
 	document.getElementById('quote-box').innerHTML = htmlString;
 }
 
+//Function to automatically change quote and color every 10 seconds
+setInterval(printQuote,1000)
+setInterval(getRandomQuote,1000)
 
 /***
  * click event listener for the print quote button
