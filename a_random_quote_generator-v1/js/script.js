@@ -102,8 +102,8 @@ function printQuote() {
 }
 
 //Function to automatically change quote and color every 10 seconds
-setInterval(printQuote,1000)
-setInterval(getRandomQuote,1000)
+setInterval(printQuote,10000)
+setInterval(getRandomQuote,10000)
 
 /***
  * click event listener for the print quote button
