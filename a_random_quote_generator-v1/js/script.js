@@ -7,9 +7,8 @@ project 1 - A Random Quote Generator
 // Check the "Project Resources" section of the project instructions
 // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
-/*** 
- * `quotes` array 
- ***/
+
+// An array of quote objects
  const quotes = [{
 	quote: 'This is quote 1',
 	source: 'source1',
@@ -62,23 +61,18 @@ project 1 - A Random Quote Generator
 }, ];
 
 
-/***
- * `getRandomQuote` function
- ***/
+// function to create random quote object
 function getRandomQuote() {
 	let quoteObject = quotes[Math.floor(Math.random() * quotes.length)]; 
 	return quoteObject
 	
 }
-/***
- * `printQuote` function
- ***/
+// function to print quote to the page
 function printQuote() {
 	let randomQuote = getRandomQuote();
-	let htmlQuote = `<p class="quote">${randomQuote.quote}</p>`;
-	let htmlSource = `<p class="source">${randomQuote.source}</p>`;
-	let htmlString = `${htmlQuote}` + `${htmlSource}`;
-
+	let htmlString = `<p class="quote">${randomQuote.quote}</p>`
+				   + `<p class="source">${randomQuote.source}</p>`;
+	
 	if ('citation' in randomQuote) {
 		htmlString+= `<span class="citation">${randomQuote.citation}</span>`;
 	}
@@ -89,17 +83,14 @@ function printQuote() {
 		htmlString+= `<span class="year">${randomQuote.tag}</span>`;
 	}
 	document.getElementById('quote-box').innerHTML = htmlString;
-	//Change background color (credit:codespeedy.com)
+	
+	//Change background color (source and credit:codespeedy.com)
 	document.body.style.backgroundColor = "#"+ Math.floor(Math.random()*16777215).toString(16);
 
 }
 
-//Function to automatically change quote every 10 seconds
+//call printquote function automatically (1000 = 1 second)
 setInterval(printQuote,10000)
 
-/***
- * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
- ***/
-
+//click event listener for the print quote button
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
