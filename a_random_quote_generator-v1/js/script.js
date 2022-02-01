@@ -19,7 +19,7 @@ project 1 - A Random Quote Generator
 	quote: 'We choose to go to the Moon... we choose to go to the Moon in this decade and do the other things, not because they are easy but because they are hard.',
 	source: 'John F Kennedy',
 	citation: 'Rice Stadium Speech',
-	year: 'September 12, 1962'
+	year: 'September 12, 1962',
 	tag: 'Historic'
 }, {
 	quote: 'There is no better teacher than adversity. Every defeat, every heartbreak, every loss, contains its own seed, its own lesson on how to improve your performance the next time.',
