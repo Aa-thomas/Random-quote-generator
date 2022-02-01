@@ -10,63 +10,36 @@ project 1 - A Random Quote Generator
 
 // An array of quote objects
  const quotes = [{
-	quote: 'This is quote 1',
-	source: 'source1',
-	citation: 'cit1',
-	year: 'year1',
-	tag: 'tag1'
+	quote: 'Out of the mountain of despair, a stone of hope.',
+	source: 'Dr. Martin Luther King',
+	citation: 'I have a dream speech',
+	year: 'August 28, 1963',
+	tag: 'Philisophical'
 }, {
-	quote: 'this is quote 2',
-	source: 'source2',
-	citation: 'cit2',
-	year: 'year2'
+	quote: 'We choose to go to the Moon... we choose to go to the Moon in this decade and do the other things, not because they are easy but because they are hard.',
+	source: 'John F Kennedy',
+	citation: 'Rice Stadium Speech',
+	year: 'September 12, 1962'
+	tag: 'Historic'
 }, {
-	quote: 'this is quote 3',
-	source: 'source3',
-	citation: 'cit3',
-	year: 'year3',
-	tag: 'tag3'
+	quote: 'There is no better teacher than adversity. Every defeat, every heartbreak, every loss, contains its own seed, its own lesson on how to improve your performance the next time.',
+	source: 'Malcolm X',
 }, {
-	quote: 'this is quote 4',
-	source: 'source4',
-	year: 'year4'
+	quote: 'I think what motivates people is not great hate, but great love for other people.',
+	source: 'Huey P newton',
+	year: '1969'
 }, {
-	quote: 'this is quote 5',
-	source: 'source5',
-	citation: 'cit5',
-	year: 'year5'
-}, {
-	quote: 'this is quote 6',
-	source: 'source6',
-	citation: 'cit6',
-}, {
-	quote: 'this is quote 7',
-	source: 'source7',
-	citation: 'cit7',
-	year: 'year7',
-	tag: 'tag7'
-}, {
-	quote: 'this is quote 8',
-	source: 'source8',
-	tag: 'tag8'
-
-}, {
-	quote: 'this is quote 9',
-	source: 'source9',
-
-}, {
-	quote: 'this is quote 10',
-	source: 'source10',
-	
-}, ];
+	quote: 'If you do not have confidence in self, you are twice defeated in the race of life. With confidence, you have won even before you have started.',
+	source: 'Marcus Garvey',
+} ];
 
 
 // function to create random quote object
 function getRandomQuote() {
 	let quoteObject = quotes[Math.floor(Math.random() * quotes.length)]; 
-	return quoteObject
-	
-}
+	return quoteObject	
+};
+
 // function to print quote to the page
 function printQuote() {
 	let randomQuote = getRandomQuote();
@@ -87,10 +60,10 @@ function printQuote() {
 	//Change background color (source and credit:codespeedy.com)
 	document.body.style.backgroundColor = "#"+ Math.floor(Math.random()*16777215).toString(16);
 
-}
+};
 
 //call printquote function automatically (1000 = 1 second)
-setInterval(printQuote,10000)
+setInterval(printQuote,10000);
 
 //click event listener for the print quote button
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
