@@ -43,8 +43,8 @@ function getRandomQuote() {
 // function to print quote to the page
 function printQuote() {
 	let randomQuote = getRandomQuote();
-	let htmlString = `<p class="quote">${randomQuote.quote}</p>`
-				   + `<p class="source">${randomQuote.source}</p>`;
+	let htmlString = `<p class="quote">${randomQuote.quote}</p>
+				      <p class="source">${randomQuote.source}`;
 	
 	if ('citation' in randomQuote) {
 		htmlString+= `<span class="citation">${randomQuote.citation}</span>`;
@@ -54,15 +54,16 @@ function printQuote() {
 	}
 	if ('tag' in randomQuote) {
 		htmlString+= `<span class="year">${randomQuote.tag}</span>`;
-	}
+	};
+	htmlString += `</p>`;
+
 	document.getElementById('quote-box').innerHTML = htmlString;
 	
 	//Change background color (source and credit:codespeedy.com)
 	document.body.style.backgroundColor = "#"+ Math.floor(Math.random()*16777215).toString(16);
-
 };
 
-//call printquote function automatically (1000 = 1 second)
+//call printquote function at 10 second intervals (1000 = 1 second)
 setInterval(printQuote,10000);
 
 //click event listener for the print quote button
