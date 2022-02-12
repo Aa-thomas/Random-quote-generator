@@ -1,4 +1,3 @@
-Tech Degree Project 1
 Random Quote Generator
 
 - Program grabs a random object from an array of objects containing quotes and prints it to the page.
